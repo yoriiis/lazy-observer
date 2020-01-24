@@ -1,7 +1,7 @@
 {
 	"name": "lazy-observer",
 	"version": "1.0.0",
-	"description": "Observer module with Intersection Observer to execute a function once when the element is intersecting",
+	"description": "Observer module with Intersection Observer to execute a function when the element is intersecting",
 	"homepage": "https://github.com/yoriiis/lazy-observer",
 	"bugs": "https://github.com/yoriiis/lazy-observer/issues",
 	"repository": "https://github.com/yoriiis/lazy-observer.git",
