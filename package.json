@@ -1,0 +1,37 @@
+{
+	"name": "lazy-observer",
+	"version": "1.0.0",
+	"description": "Observer module with Intersection Observer to execute a function once when the element is intersecting",
+	"homepage": "https://github.com/yoriiis/lazy-observer",
+	"bugs": "https://github.com/yoriiis/lazy-observer/issues",
+	"repository": "https://github.com/yoriiis/lazy-observer.git",
+	"license": "MIT",
+	"author": "Yoriiis aka Joris DANIEL",
+	"keywords": [
+		"intersection observer",
+		"intersecting",
+		"observer",
+		"observer mobule"
+	],
+	"scripts": {
+		"test:eslint": "eslint -c ./.eslintrc.js .",
+		"test:markdown": "markdownlint '**/*.md' --ignore node_modules",
+		"test:watch": "jest --watch --coverage"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "7.8.3",
+		"babel-eslint": "10.0.3",
+		"coveralls": "3.0.9",
+		"eslint": "6.8.0",
+		"eslint-config-standard": "14.1.0",
+		"eslint-plugin-import": "2.20.0",
+		"eslint-plugin-node": "11.0.0",
+		"eslint-plugin-promise": "4.2.1",
+		"eslint-plugin-standard": "4.0.1",
+		"markdownlint-cli": "0.21.0",
+		"prettier-eslint": "9.0.1"
+	},
+	"engines": {
+		"node": ">=8.11.2"
+	}
+}
