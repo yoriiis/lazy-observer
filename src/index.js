@@ -3,7 +3,7 @@
  * @name LazyObserver
  * @version 1.0.0
  * @author: Yoriiis aka Joris DANIEL <joris.daniel@gmail.com>
- * @description: Observer module with Intersection Observer to execute a function once when the element is intersecting
+ * @description: Observer module with Intersection Observer to execute a function when the element is intersecting
  * {@link https://github.com/yoriiis/lazy-observer}
  * @copyright 2020 Joris DANIEL
  **/
