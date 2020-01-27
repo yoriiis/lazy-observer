@@ -1,18 +1,19 @@
 {
 	"name": "lazy-observer",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Observer module with Intersection Observer to execute a function when the element is intersecting",
-	"homepage": "https://github.com/yoriiis/lazy-observer",
-	"bugs": "https://github.com/yoriiis/lazy-observer/issues",
-	"repository": "https://github.com/yoriiis/lazy-observer.git",
-	"license": "MIT",
-	"author": "Yoriiis aka Joris DANIEL",
 	"keywords": [
 		"intersection observer",
 		"intersecting",
 		"observer",
 		"observer mobule"
 	],
+	"homepage": "https://github.com/yoriiis/lazy-observer",
+	"bugs": "https://github.com/yoriiis/lazy-observer/issues",
+	"repository": "https://github.com/yoriiis/lazy-observer.git",
+	"license": "MIT",
+	"author": "Yoriiis aka Joris DANIEL",
+	"main": "src/index.js",
 	"scripts": {
 		"test:eslint": "eslint -c ./.eslintrc.js .",
 		"test:markdown": "markdownlint '**/*.md' --ignore node_modules",
