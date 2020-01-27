@@ -1,6 +1,6 @@
 # lazyObserver
 
-![lazyObserver](https://img.shields.io/badge/lazy--observer-v1.0.0-546e7a.svg?style=for-the-badge) [![TravisCI](https://img.shields.io/travis/com/yoriiis/lazy-observer/master?style=for-the-badge)](https://travis-ci.com/yoriiis/lazy-observer) ![Node.js](https://img.shields.io/node/v/lazy-observer?style=for-the-badge) [![Bundlephobia](https://img.shields.io/bundlephobia/minzip/lazy-observer?style=for-the-badge)](https://bundlephobia.com/result?p=lazy-observer@latest)
+![lazyObserver](https://img.shields.io/badge/lazy--observer-v1.0.1-546e7a.svg?style=for-the-badge) [![TravisCI](https://img.shields.io/travis/com/yoriiis/lazy-observer/master?style=for-the-badge)](https://travis-ci.com/yoriiis/lazy-observer) ![Node.js](https://img.shields.io/node/v/lazy-observer?style=for-the-badge) [![Bundlephobia](https://img.shields.io/bundlephobia/minzip/lazy-observer?style=for-the-badge)](https://bundlephobia.com/result?p=lazy-observer@latest)
 
 `lazyObserver` is a minimalist script to easily execute function when HTML element is intersecting. Callback can be exececuted once or every trigger.
 

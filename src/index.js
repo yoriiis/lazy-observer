@@ -1,7 +1,7 @@
 /**
  * @license MIT
  * @name LazyObserver
- * @version 1.0.0
+ * @version 1.0.1
  * @author: Yoriiis aka Joris DANIEL <joris.daniel@gmail.com>
  * @description: Observer module with Intersection Observer to execute a function when the element is intersecting
  * {@link https://github.com/yoriiis/lazy-observer}
