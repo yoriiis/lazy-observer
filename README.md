@@ -1,41 +1,83 @@
 # lazyObserver
 
-![lazyObserver](https://img.shields.io/badge/lazy--observer-v1.0.1-546e7a.svg?style=for-the-badge) [![TravisCI](https://img.shields.io/travis/com/yoriiis/lazy-observer/master?style=for-the-badge)](https://travis-ci.com/yoriiis/lazy-observer) ![Node.js](https://img.shields.io/node/v/lazy-observer?style=for-the-badge) [![Bundlephobia](https://img.shields.io/bundlephobia/minzip/lazy-observer?style=for-the-badge)](https://bundlephobia.com/result?p=lazy-observer@latest)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/yoriiis/lazy-observer/build.yml?branch=main&style=for-the-badge)](https://github.com/yoriiis/lazy-observer/actions/workflows/build.yml) [![Coverage Status](https://img.shields.io/coveralls/github/yoriiis/lazy-observer?style=for-the-badge)](https://coveralls.io/github/yoriiis/lazy-observer?branch=main)
 
-`lazyObserver` is a minimalist script to easily execute function when HTML element is intersecting. Callback can be exececuted once or every trigger.
+`lazy-observer` is a minimalist script to easily execute function when HTML element is intersecting. Callback can be exececuted once or every trigger.
 
 More information about the `IntersectionObserver` API on [MDN](https://developer.mozilla.org/fr/docs/Web/API/IntersectionObserver).
 
 ## Installation
 
-The plugin is available as the `lazy-observer` package name on [npm](https://www.npmjs.com/package/lazy-observer) and [Github](https://github.com/yoriiis/lazy-observer).
+### NPM
+
+NPM is the recommended installation method. Install `lazy-observer` in your project with the following command:
 
 ```bash
-npm i --save-dev lazy-observer
+npm install lazy-observer --save-dev
 ```
 
 ```bash
-yarn add --dev lazy-observer
+yarn add lazy-observer --dev
 ```
 
-## Environment
+> **Note** Minimum supported `Node.js` version is `16.20.0`.
 
-`lazyObserver` was built for Node.js `>=8.11.2`.
+### CDN
 
-## Usage
+You can also download it and include it with a script tag. The library will be registered as the global variable `window.LazyObserver`.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/lazy-observer@2" crossorigin></script>
+```
+
+> **Note** You can browse the source of the NPM package at [jsdelivr.com/package/npm/lazy-observer](https://www.jsdelivr.com/package/npm/lazy-observer).
+
+## Installation
+
+The library is available as the `lazy-observer` package name on [npm](https://www.npmjs.com/package/lazy-observer) and [Github](https://github.com/yoriiis/lazy-observer).
+
+```bash
+npm install lazy-observer --save
+```
+
+```bash
+yarn add validate-target --dev
+```
+
+## How it works
+
+### Initialization
+
+Import `lazy-observer` JavaScript library as an ES6 modules.
+
+```js
+import LazyObserver from 'lazy-observer';
+```
+
+Initialize the library with the minimal parameters.
+
+```js
+new LazyObserver({
+  elements: document.querySelector('.footer'),
+  onIntersection: () => console.log('Function is triggered')
+});
+lazyObserver.observe();
+```
+
+---
+
+## Configuration
+
+### Options
 
 ### Basic usage
 
 The following example display a `console.log` statement when the `.footer` HTML element is positioned at one screen height.
 
 ```javascript
-const LazyObserver = require('lazy-observer');
-
-const lazyObserver = new LazyObserver({
-    element: document.querySelector('.footer'),
-    onIntersection: () => {
-        console.log('Function is triggered');
-    }
+new LazyObserver({
+  elements: document.querySelector('.footer'),
+  onIntersection: () => console.log('Function is triggered')
 });
 
 lazyObserver.observe();
@@ -46,14 +88,12 @@ lazyObserver.observe();
 The following example displays a `console.log` statement each time the HTML `.footer` element is positioned at one screen height.
 
 ```javascript
-const LazyObserver = require('lazy-observer');
-
-const lazyObserver = new LazyObserver({
-    element: document.querySelector('.footer'),
-    once: false,
-    onIntersection: () => {
-        console.log('Function is triggered');
-    }
+new LazyObserver({
+  elements: document.querySelector('.footer'),
+  once: false,
+  onIntersection: () => {
+    console.log('Function is triggered');
+  }
 });
 
 lazyObserver.observe();
@@ -64,10 +104,9 @@ lazyObserver.observe();
 The following example displays a `console.log` statement when the HTML `.footer` element is positioned directly at the bottom of the screen.
 
 ```javascript
-const LazyObserver = require('lazy-observer');
 
-const lazyObserver = new LazyObserver({
-    element: document.querySelector('.footer'),
+new LazyObserver({
+    elements: document.querySelector('.footer'),
     rootMargin: '0px 0px 0px 0px'
     onIntersection: () => {
         console.log('Function is triggered');
@@ -82,10 +121,9 @@ lazyObserver.observe();
 The following example displays a `console.log` statement when the HTML `.footer` element is positioned directly at the bottom of the screen.
 
 ```javascript
-const LazyObserver = require('lazy-observer');
 
-const lazyObserver = new LazyObserver({
-    element: document.querySelector('.footer'),
+new LazyObserver({
+    elements: document.querySelector('.footer'),
     rootMargin: '0px 0px 0px 0px'
     onIntersection: () => {
         import(/* webpackChunkName: "footer-video" */ 'footer-video.js'
@@ -102,25 +140,53 @@ lazyObserver.observe();
 
 #### `element`
 
-`HTMLElement`
+Type:
 
-Tells to the function the target element.
+```ts
+type elements = HTMLElement | HTMLElement[];
+```
+
+Default: `null`
+
+Tells to the function the target element(s).
 
 #### `onIntersection`
 
-`function`
+Type:
+
+```ts
+type onIntersection = () => void;
+```
+
+Default: `() => {}`
 
 Specifies the function to execute when the element is intersecting.
 
 #### `once`
 
-`boolean = true`
+Type:
+
+```ts
+type once = boolean;
+```
+
+Default: `true`
 
 Specifies the function is the callback is executed once or at every trigger.
 
 #### `rootMargin`
 
-`string = 0px 0px ${window.innerHeight}px 0px`
+Type:
+
+```ts
+type rootMargin = string;
+```
+
+Default:
+
+```js
+`0px 0px ${window.innerHeight}px 0px`;
+```
 
 Specifies the function the offset for the Intersection Observer.
 
