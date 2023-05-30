@@ -2,7 +2,7 @@
 
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/yoriiis/lazy-observer/build.yml?branch=main&style=for-the-badge)](https://github.com/yoriiis/lazy-observer/actions/workflows/build.yml) [![Coverage Status](https://img.shields.io/coveralls/github/yoriiis/lazy-observer?style=for-the-badge)](https://coveralls.io/github/yoriiis/lazy-observer?branch=main)
 
-`lazy-observer` is a minimalist script to easily execute function when HTML element is intersecting. Callback can be exececuted once or every trigger.
+`lazy-observer` is a minimalist script to easily execute function when HTML element is intersecting. Callback can be executed once or every trigger.
 
 More information about the `IntersectionObserver` API on [MDN](https://developer.mozilla.org/fr/docs/Web/API/IntersectionObserver).
 
@@ -20,6 +20,8 @@ npm install lazy-observer --save-dev
 yarn add lazy-observer --dev
 ```
 
+> **Warning** validate-target@3 is ESM.
+>
 > **Note** Minimum supported `Node.js` version is `16.20.0`.
 
 ### CDN
@@ -32,43 +34,7 @@ You can also download it and include it with a script tag. The library will be r
 
 > **Note** You can browse the source of the NPM package at [jsdelivr.com/package/npm/lazy-observer](https://www.jsdelivr.com/package/npm/lazy-observer).
 
-## Installation
-
-The library is available as the `lazy-observer` package name on [npm](https://www.npmjs.com/package/lazy-observer) and [Github](https://github.com/yoriiis/lazy-observer).
-
-```bash
-npm install lazy-observer --save
-```
-
-```bash
-yarn add validate-target --dev
-```
-
 ## How it works
-
-### Initialization
-
-Import `lazy-observer` JavaScript library as an ES6 modules.
-
-```js
-import LazyObserver from 'lazy-observer';
-```
-
-Initialize the library with the minimal parameters.
-
-```js
-new LazyObserver({
-  elements: document.querySelector('.footer'),
-  onIntersection: () => console.log('Function is triggered')
-});
-lazyObserver.observe();
-```
-
----
-
-## Configuration
-
-### Options
 
 ### Basic usage
 
@@ -101,7 +67,7 @@ lazyObserver.observe();
 
 ### Change the offset
 
-The following example displays a `console.log` statement when the HTML `.footer` element is positioned directly at the bottom of the screen.
+The following example displays a `console.log` statement when the HTML `.footer` element is positioned directly at the bottom of the screen. See the [`rootMargin` documentation](https://developer.mozilla.org/fr/docs/Web/API/IntersectionObserver/rootMargin).
 
 ```javascript
 
@@ -136,9 +102,11 @@ new LazyObserver({
 lazyObserver.observe();
 ```
 
-### Parameters
+---
 
-#### `element`
+## Parameters
+
+### `element`
 
 Type:
 
@@ -150,7 +118,7 @@ Default: `null`
 
 Tells to the function the target element(s).
 
-#### `onIntersection`
+### `onIntersection`
 
 Type:
 
@@ -162,7 +130,7 @@ Default: `() => {}`
 
 Specifies the function to execute when the element is intersecting.
 
-#### `once`
+### `once`
 
 Type:
 
@@ -174,7 +142,7 @@ Default: `true`
 
 Specifies the function is the callback is executed once or at every trigger.
 
-#### `rootMargin`
+### `rootMargin`
 
 Type:
 
