@@ -1,10 +1,13 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { jest } from '@jest/globals'
 
-const Observer = (await import('../src/index.js')).default
+const Observer = (await import('../src/index')).default
 let mockElement
 let observer
 
-const callbackFn = () => {}
+const callbackFn = () => {
+	/** Empty code */
+}
 const getInstance = () => {
 	return new Observer({
 		elements: mockElement,
@@ -34,12 +37,10 @@ beforeEach(() => {
 
 describe('Observer', () => {
 	describe('constructor', () => {
-		it('should set the module properties to the default parameters if none defined', () => {
-			const defaultObserver = new Observer()
-
-			expect(defaultObserver.elements).toBeNull()
-			expect(observer.onIntersection).toEqual(callbackFn)
-			expect(defaultObserver.once).toBe(true)
+		it('should throw an error if no elements is provived', () => {
+			expect(() => new Observer()).toThrow(
+				new Error('Observer :: The element supplied is not valid.')
+			)
 		})
 
 		it('should set the module properties considering the parameters defined', () => {
@@ -72,16 +73,16 @@ describe('Observer', () => {
 			expect(customObserver.observer.observe).toHaveBeenCalledTimes(2)
 		})
 
-		it('should warn an error', () => {
-			console.warn = jest.fn()
-			const errorObserver = new Observer({
-				elements: undefined
-			})
+		// it('should warn an error', () => {
+		// 	console.warn = jest.fn()
+		// 	const errorObserver = new Observer({
+		// 		elements: undefined
+		// 	})
 
-			errorObserver.observe()
+		// 	errorObserver.observe()
 
-			expect(console.warn).toHaveBeenCalledWith('Error: Observer::observe: No element to observe')
-		})
+		// 	expect(console.warn).toHaveBeenCalledWith('Error: Observer::observe: No element to observe')
+		// })
 	})
 
 	describe('unobserve', () => {
