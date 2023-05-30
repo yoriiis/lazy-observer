@@ -93,14 +93,13 @@ describe('Observer', () => {
 	})
 
 	describe('callbackOnIntersection', () => {
+		beforeEach(() => {
+			observer.unobserve = jest.fn()
+			observer.onIntersection = jest.fn()
+		})
+
 		it('should call onIntersection function if entry is intersecting', () => {
 			const entries = [{ isIntersecting: true }, { isIntersecting: true }]
-
-			// Use "spyOn" instead of "jest.fn" because the mocked functions have the typeof "function"
-			// The condition typeof fn === 'function' is always true
-			jest.spyOn(observer, 'onIntersection')
-
-			observer.unobserve = jest.fn()
 
 			observer.callbackOnIntersection(entries)
 
@@ -116,9 +115,6 @@ describe('Observer', () => {
 
 			observer.once = true
 
-			observer.unobserve = jest.fn()
-			observer.onIntersection = jest.fn()
-
 			observer.callbackOnIntersection(entries)
 
 			expect(observer.onIntersection).toHaveBeenCalledTimes(1)
@@ -130,9 +126,6 @@ describe('Observer', () => {
 
 		it('should do nothing if entry is not intersecting', () => {
 			const entries = [{ isIntersecting: false }]
-
-			observer.unobserve = jest.fn()
-			observer.onIntersection = jest.fn()
 
 			observer.callbackOnIntersection(entries)
 
