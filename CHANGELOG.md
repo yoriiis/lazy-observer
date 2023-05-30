@@ -8,6 +8,10 @@
 
 - Minimum supported `Node.js` version is `16.20.0` and package is ESM ([#7](https://github.com/yoriiis/lazy-observer/pull/7))
 
+### Updates
+
+- Transform to TypeScript ([#8](https://github.com/yoriiis/lazy-observer/pull/8))
+
 ## 1.0.1
 
 ### Fixes

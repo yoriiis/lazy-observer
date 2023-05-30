@@ -72,17 +72,6 @@ describe('Observer', () => {
 			expect(customObserver.observer.observe).toHaveBeenNthCalledWith(2, customObserver.elements[1])
 			expect(customObserver.observer.observe).toHaveBeenCalledTimes(2)
 		})
-
-		// it('should warn an error', () => {
-		// 	console.warn = jest.fn()
-		// 	const errorObserver = new Observer({
-		// 		elements: undefined
-		// 	})
-
-		// 	errorObserver.observe()
-
-		// 	expect(console.warn).toHaveBeenCalledWith('Error: Observer::observe: No element to observe')
-		// })
 	})
 
 	describe('unobserve', () => {
